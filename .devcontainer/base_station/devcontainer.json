@@ -1,5 +1,8 @@
 {
-  "name": "jazzy desktop-full",
+  "name": "Base Station Computer",
+  "forwardPorts": [
+    3000
+  ],
   "dockerFile": "Dockerfile",
   "runArgs": [
     "--privileged",

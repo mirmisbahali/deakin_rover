@@ -6,8 +6,8 @@ ARG USERNAME=ubuntu
 ARG USER_UID=1000
 ARG USER_GID=$USER_UID
 RUN if ! id -u $USER_UID >/dev/null 2>&1; then \
-        groupadd --gid $USER_GID $USERNAME && \
-        useradd -s /bin/bash --uid $USER_UID --gid $USER_GID -m $USERNAME; \
+    groupadd --gid $USER_GID $USERNAME && \
+    useradd -s /bin/bash --uid $USER_UID --gid $USER_GID -m $USERNAME; \
     fi
 # Add sudo support for the non-root user
 RUN apt-get update && \
@@ -36,3 +36,9 @@ RUN echo "source /opt/ros/${ROS_DISTRO}/setup.bash" >> ~/.bashrc
 ################################
 ## ADD ANY CUSTOM SETUP BELOW ##
 ################################
+
+# Installing Nodejs
+RUN sudo curl -fsSL https://deb.nodesource.com/setup_24.x | sudo bash - && \
+    sudo apt-get install -y nodejs
+
+EXPOSE 3000
