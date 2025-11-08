@@ -1,13 +1,14 @@
 {
-  "name": "jazzy desktop-full",
+  "name": "jazzy desktop",
   "dockerFile": "Dockerfile",
   "runArgs": [
     "--privileged",
     "--network=host"
   ],
   "workspaceMount": "source=${localWorkspaceFolder},target=/${localWorkspaceFolderBasename},type=bind",
-  "workspaceFolder": "/${localWorkspaceFolderBasename}",
-  // "mounts": [ 
+  "workspaceFolder": "/${localWorkspaceFolderBasename}/rover_ws",
+  // "mounts" causes problems on Windows hosts
+  // "mounts": [
   //   "source=${localEnv:HOME}${localEnv:USERPROFILE}/.bash_history,target=/home/vscode/.bash_history,type=bind"
   // ]
 }
